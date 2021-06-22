@@ -1,0 +1,19 @@
+styles.content {
+    textmedia {
+#        # cat=content/cTextmedia/b1; type=int+; label= Max Image/Media Width: This indicates that maximum number of pixels (width) a block of media elements inserted as content is allowed to consume
+#        maxW = 800
+#        # cat=content/cTextmedia/b2; type=int+; label= Max Image/Media Width (Text): Same as above, but this is the maximum width when text is wrapped around an block of media elements. Default is 50% of the normal Max Media Item Width
+#        maxWInText = 480
+
+        borderWidth = 2
+        borderColor = #000
+        borderPadding = 0
+        textMargin = 10
+        columnSpacing = 10
+        rowSpacing = 10
+        # cat=content/cTextmedia/b9; type=int+; label= Media-width percentage compared to text-width for media next to text
+        mediaWidthPercentage = 60
+        # cat=content/cTextmedia/b10; type=int+; label= Minimum width (px) of text column next to media
+        minTextWidth = 220
+    }
+}
