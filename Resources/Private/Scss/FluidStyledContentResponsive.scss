@@ -1,0 +1,190 @@
+.ce-align-left { text-align: left; }
+.ce-align-center { text-align: center; }
+.ce-align-right { text-align: right; }
+
+// RTE-added alignment classes get priority:
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+.ce-textpic, .ce-image, .ce-nowrap .ce-bodytext, .ce-gallery, .ce-row, .ce-uploads li, .ce-uploads div { overflow: hidden; }
+
+.ce-intext {
+    --tm-marginQuotient: 2;
+    margin-left: calc(var(--tm-textMargin, 10px) / var(--tm-marginQuotient) * -1);
+    margin-right: calc(var(--tm-textMargin, 10px) / var(--tm-marginQuotient) * -1);
+
+    .ce-bodytext, .ce-gallery {
+        padding-left: calc(var(--tm-textMargin, 10px) / var(--tm-marginQuotient));
+        padding-right: calc(var(--tm-textMargin, 10px) / var(--tm-marginQuotient));
+    }
+
+    // Enable these 2 lines to force enlarging images when they don't fit the space TODO: make this optional
+    .ce-column { flex: 1 1 auto; }
+    figure, img { width: 100%; }
+
+    &:not(.ce-nowrap) {
+        display: flow-root;
+        --tm-marginQuotient: 1;
+
+        .ce-gallery {
+            min-width: var(--tm-mediaWidthPercentage, 50%);
+            width: calc(((var(--tm-minTextWidth, 240px) + var(--tm-textMargin, 10px)) - (100% - var(--tm-mediaWidthPercentage, 50%))) * 1000);
+            max-width: 100%;
+        }
+    }
+
+    &.ce-right.ce-nowrap .ce-gallery { order: 1; }
+}
+
+.ce-left:not(.ce-nowrap) .ce-gallery { float: left; }
+.ce-right:not(.ce-nowrap) .ce-gallery { float: right; }
+
+.ce-center .ce-gallery {
+    // width:max-content for supporting browsers, display:table for the rest
+    display: table;
+    margin: 0 auto;
+    width: max-content;
+}
+
+.ce-nowrap {
+    display: flex;
+    flex-wrap: wrap;
+
+    .ce-gallery {
+        flex: 1 0 var(--tm-mediaWidthPercentage, 50%);
+    }
+    .ce-bodytext {
+        flex: 1 1 calc(100% - var(--tm-mediaWidthPercentage, 50%));
+        min-width: calc(var(--tm-minTextWidth, 240px) + var(--tm-textMargin, 10px));
+    }
+}
+
+.ce-gallery {
+    figure {
+        display: table;
+        margin: 0;
+    }
+    figcaption {
+        display: table-caption;
+        caption-side: bottom;
+    }
+    img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+    iframe {
+        border-width: 0;
+    }
+}
+
+.ce-border {
+    img,
+    iframe {
+        border: 2px solid;
+        border: var(--tm-borderWidth, 2px) solid var(--tm-borderColor, #000);
+        padding: 0;
+        padding: var(--tm-borderPadding, 0);
+    }
+}
+
+.ce-intext .ce-gallery,
+.ce-above .ce-gallery {
+    margin-bottom: var(--tm-textMargin, 10px);
+}
+
+.ce-below .ce-gallery { margin-top: var(--tm-textMargin, 10px); }
+.ce-column + .ce-column { margin-left: var(--tm-columnSpacing, 10px); }
+.ce-row + .ce-row { margin-top: var(--tm-rowSpacing, 10px); }
+
+.ce-above .ce-bodytext { clear: both; }
+
+.ce-intext.ce-left ol,
+.ce-intext.ce-left ul {
+    padding-left: 40px;
+    overflow: auto;
+}
+
+// Align top of text with top of images
+.ce-intext .ce-bodytext { margin-top: -.25em; }
+.ce-nowrap .ce-bodytext { margin-top: -.15em; }
+.ce-intext.ce-nowrap {
+    header {
+        // Remove margin-top from headings when shown next to images, align with top of image
+        h1:first-child { margin-top: 0; }
+        h2:first-child { margin-top: 0; }
+        h3:first-child { margin-top: 0; }
+        h4:first-child { margin-top: 0; }
+        h5:first-child { margin-top: 0; }
+    }
+}
+
+.image-caption {
+    font-size: 85%;
+    color: #333;
+}
+
+.ce-row { display: flex; }
+
+/* Headline */
+.ce-headline-left { text-align: left; }
+.ce-headline-center { text-align: center; }
+.ce-headline-right { text-align: right; }
+
+/* Uploads */
+.ce-uploads { margin: 0; padding: 0; }
+.ce-uploads li { list-style: none outside none; margin: 1em 0; }
+.ce-uploads img { float: left; padding-right: 1em; vertical-align: top; }
+.ce-uploads span { display: block; }
+
+/* Table */
+.ce-table,
+.contenttable {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    border-top: 2px solid #dedede;
+    border-bottom: 2px solid #dedede;
+    margin-bottom: 1.3em;
+    td, th {
+        padding: 0.4em 0.75em;
+        vertical-align: top;
+        text-align: left;
+    }
+    thead th {
+        //border-bottom: 2px solid #dadada;
+    }
+    th, td {
+        //border-top: 1px solid #dadada;
+    }
+    caption {
+        font: italic 1.20em/1.50em inherit;
+        margin-bottom: 1em;
+        margin-top: .2em;
+        color: #339999;
+        text-align: left;
+    }
+    p { margin: 0; line-height: inherit; }
+}
+.ce-table-striped tbody tr:nth-of-type(odd) { background-color: rgba(0,0,0,.05); }
+.ce-table-bordered th, .ce-table-bordered td { border: 1px solid #dadada; }
+
+/* Space */
+.frame-space-before-extra-small { margin-top: 1em; }
+.frame-space-before-small { margin-top: 2em; }
+.frame-space-before-medium { margin-top: 3em; }
+.frame-space-before-large { margin-top: 4em; }
+.frame-space-before-extra-large { margin-top: 5em; }
+.frame-space-after-extra-small { margin-bottom: 1em; }
+.frame-space-after-small { margin-bottom: 2em; }
+.frame-space-after-medium { margin-bottom: 3em; }
+.frame-space-after-large { margin-bottom: 4em; }
+.frame-space-after-extra-large { margin-bottom: 5em; }
+
+/* Frame */
+.frame-ruler-before:before { content: ''; display: block; border-top: 1px solid rgba(0,0,0,0.25); margin-bottom: 2em; }
+.frame-ruler-after:after { content: ''; display: block; border-bottom: 1px solid rgba(0,0,0,0.25); margin-top: 2em; }
+.frame-indent { margin-left: 15%; margin-right: 15%; }
+.frame-indent-left { margin-left: 33%; }
+.frame-indent-right { margin-right: 33%; }

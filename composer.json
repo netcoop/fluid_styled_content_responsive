@@ -1,0 +1,19 @@
+{
+    "name": "netcoop/fluid-styled-content-responsive",
+    "description": "FLUID Styled Content RESPONSIVE",
+    "type": "typo3-cms-extension",
+    "version": "0.0.1",
+    "license": "gpl",
+    "require": {
+        "typo3/cms-core": "^9"
+    },
+    "replace": {
+        "fluid-styled-content-responsive": "self.version",
+        "typo3-ter/fluid-styled-content-responsive": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "Netcoop\\CustomCe\\": "Classes/"
+        }
+    }
+}

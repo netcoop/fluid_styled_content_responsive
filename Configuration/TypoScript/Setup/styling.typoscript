@@ -1,0 +1,15 @@
+
+plugin.tx_fluidstyledcontent._CSS_DEFAULT_STYLE (
+:root {
+--tm-borderWidth: {$styles.content.textmedia.borderWidth}px;
+--tm-borderColor: {$styles.content.textmedia.borderColor};
+--tm-borderPadding: {$styles.content.textmedia.borderPadding}px;
+--tm-textMargin: {$styles.content.textmedia.textMargin}px;
+--tm-columnSpacing: {$styles.content.textmedia.columnSpacing}px;
+--tm-rowSpacing: {$styles.content.textmedia.rowSpacing}px;
+--tm-mediaWidthPercentage: {$styles.content.textmedia.mediaWidthPercentage}%;
+--tm-minTextWidth: {$styles.content.textmedia.minTextWidth}px;
+}
+)
+
+page.includeCSS.tx_fluidstyledcontent = EXT:fluid_styled_content_responsive/Resources/Public/Css/FluidStyledContentResponsive.css

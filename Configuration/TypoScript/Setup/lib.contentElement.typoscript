@@ -1,0 +1,11 @@
+lib.contentElement {
+    templateRootPaths {
+        8 = EXT:fluid_styled_content_responsive/Resources/Private/Templates/
+    }
+    partialRootPaths {
+        8 = EXT:fluid_styled_content_responsive/Resources/Private/Partials/
+    }
+    layoutRootPaths {
+        8 = EXT:fluid_styled_content_responsive/Resources/Private/Layouts/
+    }
+}
